@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Categories = () => {
+const Category = () => {
    return (
       <div className='border bg-orange-300'>
          <h2>Prog</h2>
@@ -10,4 +10,4 @@ const Categories = () => {
    );
 };
 
-export default Categories;
+export default Category;
