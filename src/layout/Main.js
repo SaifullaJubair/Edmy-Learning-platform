@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import Category from '../components/Sidebar/Category';
+import Categories from '../components/Sidebar/Categories';
 
 const Main = () => {
    return (
@@ -18,12 +18,12 @@ const Main = () => {
 
          <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
             <div className='
-            text-5xl
+            text-3xl
             lg:col-span-1
             md:col-span-1
             border
             '>
-               <Category></Category>
+               <Categories></Categories>
             </div>
             <div className='text-5xl lg:col-span-3  md:col-span-2 border bg-slate-500'>
                <Outlet></Outlet>
