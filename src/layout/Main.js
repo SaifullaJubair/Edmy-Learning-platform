@@ -6,7 +6,7 @@ import Categories from '../components/Sidebar/Categories';
 
 const Main = () => {
    return (
-      <div>
+      <div >
          <Header></Header>
          {/* <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
 
@@ -17,14 +17,14 @@ const Main = () => {
          </div> */}
 
          <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
-            <div className='
+            <div data-theme="night" className='
             lg:col-span-1
             md:col-span-1
             border
             '>
                <Categories></Categories>
             </div>
-            <div className='lg:col-span-3  md:col-span-2 border bg-slate-500'>
+            <div className='lg:col-span-3  md:col-span-2 border'>
                <Outlet></Outlet>
             </div>
          </div>

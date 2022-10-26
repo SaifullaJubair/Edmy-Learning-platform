@@ -12,7 +12,7 @@ const Categories = () => {
 
    })
    return (
-      <div className='border bg-green-900'>
+      <div >
          <h2>ALL Categories {categories.length}</h2>
          <div className='m-3'>
             {
@@ -22,7 +22,7 @@ const Categories = () => {
             }
          </div>
 
-      </div>
+      </div >
    );
 };
 
