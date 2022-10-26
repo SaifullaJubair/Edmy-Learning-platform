@@ -18,14 +18,13 @@ const Main = () => {
 
          <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
             <div className='
-            text-3xl
             lg:col-span-1
             md:col-span-1
             border
             '>
                <Categories></Categories>
             </div>
-            <div className='text-5xl lg:col-span-3  md:col-span-2 border bg-slate-500'>
+            <div className='lg:col-span-3  md:col-span-2 border bg-slate-500'>
                <Outlet></Outlet>
             </div>
          </div>
