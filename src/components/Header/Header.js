@@ -5,7 +5,13 @@ import { FaUserAlt } from "react-icons/fa";
 import { AuthContext } from '../Context/AuthProvider';
 
 const Header = () => {
-   const { user } = useContext(AuthContext)
+   const { user, logOut } = useContext(AuthContext)
+
+   const handleLogOut = () => {
+      logOut()
+         .then(() => { })
+         .catch(error => console.error(error));
+   }
    return (
       <div>
          <div className="navbar bg-base-100">
@@ -31,13 +37,25 @@ const Header = () => {
                   <li><Link to='/faq'>FAQ</Link></li>
                   <li><Link to='blog'>Blog</Link></li>
                   <li><Link to='/courses'>Courses</Link></li>
-                  <li><Link to='/signup'>SignUp</Link></li>
-                  <li><Link to='/login'>Login</Link></li>
+                  <li></li>
+                  <li></li>
                </ul>
             </div>
             <div className="navbar-end mr-3">
                <input type="checkbox" className="toggle mr-2" />
                <Link to='/user'>
+                  {
+                     user?.uid ?
+                        <>
+                           <span>{user?.displayName}</span>
+                           <button onClick={handleLogOut}> Logout</button>
+                        </>
+                        :
+                        <>
+                           <Link to='/signup'>SignUp</Link>
+                           <Link to='/login'>Login</Link>
+                        </>
+                  }
                   {
                      user?.photoURL ?
                         <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
