@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../Context/AuthProvider';
@@ -11,7 +12,7 @@ const Login = () => {
    const location = useLocation()
    const from = location.state?.from?.pathname || '/'
 
-   const { signIn, signInWithGoogle } = useContext(AuthContext)
+   const { signIn, signInWithGoogle, setLoading } = useContext(AuthContext)
 
    const handleGoogleSignIn = () => {
       signInWithGoogle()
@@ -28,17 +29,22 @@ const Login = () => {
    const handleSubmit = (event) => {
       event.preventDefault()
       const form = event.target;
-      // name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
       console.log(email, password);
+
       signIn(email, password)
          .then(res => {
             const user = res.user;
             console.log(user)
             form.reset()
-            navigate(from, { replace: true })
             setError('')
+            if (user.emailVerified) {
+               navigate(from, { replace: true })
+            }
+            else {
+               toast.error('Your email is not Verified! Please Verify your email.Check your inbox spam folder')
+            }
          })
          .catch(error => {
             console.error('error: ', error)
@@ -74,7 +80,6 @@ const Login = () => {
                   </div>
                   <div className="form-control mt-2">
                      <button className="btn btn-primary my-2">Login</button>
-                     <p></p>
                      <button className="btn btn-primary" onClick={handleGoogleSignIn}>
                         <p>Google SignIn</p>
                      </button>

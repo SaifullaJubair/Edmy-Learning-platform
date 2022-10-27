@@ -54,7 +54,7 @@ const Header = () => {
                         <Link to='/login' className='mr-2'>Login</Link>
                      </>
                }
-               <Link to='/user'>
+               <Link to='/profile'>
                   {
                      user?.photoURL ?
                         <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
