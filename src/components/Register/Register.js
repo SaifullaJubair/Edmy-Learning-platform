@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
 
 
 const Register = () => {
+   const [error, setError] = useState('')
    const { createUser } = useContext(AuthContext)
    // console.log('createUser', createUser);
    const handleSubmit = (event) => {
@@ -23,21 +24,15 @@ const Register = () => {
             const user = res.user;
             console.log('Register user', user)
             form.reset()
+            setError('')
          })
          .catch(error => {
             console.error('error :', error);
+            setError(error.message)
          })
    }
 
-   //google signIn
-   // const handleGoogleSignIn = () => {
-   //    signInWithGoogle()
-   //       .then((result => {
-   //          const user = result.user
-   //          console.log(user)
-   //       }))
-   //       .catch(error => console.error(error));
-   // }
+
    return (
       <div className="hero min-h-screen bg-base-200">
          <div className="hero-content flex-col">
@@ -73,8 +68,10 @@ const Register = () => {
                               Already have an account?<Link to='/login' className='btn btn-link text-xs p-1' >Login</Link>
                            </small>
                         </p>
-
                      </label>
+                     <p className='text-red-600 text-sm'>
+                        {error}
+                     </p>
                   </div>
                   <div className="form-control mt-2">
                      <button className="btn btn-primary">Register</button>
