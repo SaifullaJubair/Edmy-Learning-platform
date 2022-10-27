@@ -10,11 +10,11 @@ const Course = () => {
    const { title, _id, rating, details, price, instructor, image_url, course_overview, course_time, video, quiz, exam, enrolled } = course
    return (
       <div>
-         <h1>Course Details</h1>
+         <h1 className='text-center text-4xl text-semibold'>Course Details</h1>
 
          <div className="card lg:w-4/5 sm:w-11/12 bg-base-100 shadow mx-auto my-4">
             <figure>
-               <img src="https://img.freepik.com/free-photo/close-up-image-programer-working-his-desk-office_1098-18707.jpg?w=1060&t=st=1666782419~exp=1666783019~hmac=d0fe22544ddcffe298af325818ca533914a0fc643839a514078f77d2c713d128" alt="Shoes" />
+               <img src={image_url} alt="Shoes" />
             </figure>
 
             <div className="card-body">

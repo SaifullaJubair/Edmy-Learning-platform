@@ -12,10 +12,22 @@ const Login = () => {
    const location = useLocation()
    const from = location.state?.from?.pathname || '/'
 
-   const { signIn, signInWithGoogle, setLoading } = useContext(AuthContext)
+   const { signIn, signInWithGoogle, setLoading, signInWithGithub } = useContext(AuthContext)
 
    const handleGoogleSignIn = () => {
       signInWithGoogle()
+         .then(result => {
+            const user = result.user;
+            console.log(user)
+         })
+         .catch(error => {
+            console.error(error)
+            setError(error.message)
+         });
+   }
+
+   const handleGitHubSignIn = () => {
+      signInWithGithub()
          .then(result => {
             const user = result.user;
             console.log(user)
@@ -82,6 +94,9 @@ const Login = () => {
                      <button className="btn btn-primary my-2">Login</button>
                      <button className="btn btn-primary" onClick={handleGoogleSignIn}>
                         <p>Google SignIn</p>
+                     </button>
+                     <button className="btn btn-primary mt-2" onClick={handleGitHubSignIn}>
+                        <p>Github SignIn</p>
                      </button>
                   </div>
                </form>

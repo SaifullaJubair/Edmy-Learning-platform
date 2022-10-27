@@ -37,8 +37,6 @@ const Header = () => {
                   <li><Link to='/faq'>FAQ</Link></li>
                   <li><Link to='blog'>Blog</Link></li>
                   <li><Link to='/courses'>Courses</Link></li>
-                  <li></li>
-                  <li></li>
                </ul>
             </div>
             <div className="navbar-end mr-3">
@@ -57,7 +55,10 @@ const Header = () => {
                <Link to='/profile'>
                   {
                      user?.photoURL ?
-                        <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
+                        <span className='flex item-center'>
+                           <p className='mt-3 mr-2'>{user?.displayName}</p>
+                           <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
+                        </span>
                         :
                         <span ><FaUserAlt></FaUserAlt> </span>
                   }
