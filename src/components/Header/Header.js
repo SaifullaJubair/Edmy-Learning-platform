@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserAlt } from "react-icons/fa";
+
 import { AuthContext } from '../Context/AuthProvider';
 
 const Header = () => {
@@ -33,8 +35,17 @@ const Header = () => {
                   <li><Link to='/login'>Login</Link></li>
                </ul>
             </div>
-            <div className="navbar-end">
-               <Link to='/user'>{user?.displayName}</Link>
+            <div className="navbar-end mr-3">
+               <input type="checkbox" className="toggle mr-2" />
+               <Link to='/user'>
+                  {
+                     user?.photoURL ?
+                        <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
+                        :
+                        <span ><FaUserAlt></FaUserAlt> </span>
+                  }
+
+               </Link>
             </div>
          </div>
       </div>
