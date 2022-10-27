@@ -9,6 +9,7 @@ import FAQ from "../FAQ/FAQ";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import Terms from "../Terms/Terms";
 import User from "../User/User";
 import PrivateRoute from "./PrivateRoute";
 
@@ -57,6 +58,10 @@ export const routes = createBrowserRouter([
          {
             path: '/checkout',
             element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+         },
+         {
+            path: '/terms',
+            element: <Terms></Terms>
          },
          {
             path: '/faq',

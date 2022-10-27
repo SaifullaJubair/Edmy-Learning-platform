@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
@@ -6,7 +7,8 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
    const [error, setError] = useState('')
-   const { createUser } = useContext(AuthContext)
+   const [check, setCheck] = useState(false)
+   const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext)
    // console.log('createUser', createUser);
    const handleSubmit = (event) => {
       event.preventDefault()
@@ -25,13 +27,42 @@ const Register = () => {
             console.log('Register user', user)
             form.reset()
             setError('')
+            handelUpdateUserProfile(name, photoURL)
+            handleEmailVerify();
+            toast.success('Successfully Register! Please verify your email')
+
+
          })
          .catch(error => {
             console.error('error :', error);
             setError(error.message)
          })
    }
+   const handelUpdateUserProfile = (name, photoURL) => {
+      const profile = {
+         displayName: name,
+         photoURL: photoURL
+      }
+      updateUserProfile(profile)
+         .then(res => {
 
+         })
+         .catch(error => {
+            console.error(error);
+         })
+   }
+   //Email verify
+   const handleEmailVerify = () => {
+      verifyEmail()
+         .then(() => { })
+         .catch(error => {
+            console.error(error);
+         })
+   }
+
+   const handleCheck = event => {
+      setCheck(event.target.checked)
+   }
 
    return (
       <div className="hero min-h-screen bg-base-200">
@@ -72,9 +103,14 @@ const Register = () => {
                      <p className='text-red-600 text-sm'>
                         {error}
                      </p>
+                     <label className="label cursor-pointer">
+                        <Link to='/terms'><span className="label-text link link-hover text-yellow-600 ">Accept Terms & Conditions</span></Link>
+                        <input type="checkbox" onClick={handleCheck} className="checkbox checkbox-primary" />
+                     </label>
                   </div>
+
                   <div className="form-control mt-2">
-                     <button className="btn btn-primary">Register</button>
+                     <button className="btn btn-primary" disabled={!check}>Register</button>
                   </div>
                </form>
             </div>
