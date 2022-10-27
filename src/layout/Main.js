@@ -8,23 +8,11 @@ const Main = () => {
    return (
       <div >
          <Header></Header>
-         {/* <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
-
-            <Categories className='lg:col-span-1 md:col-span-1'></Categories>
-
-            <Outlet className='text-5xl lg:col-span-3  md:col-span-2'></Outlet>
-
-         </div> */}
-
-         <div className='grid lg:grid-cols-4 md:grid-cols-3 border'>
-            <div data-theme="night" className='
-            lg:col-span-1
-            md:col-span-1
-            border
-            '>
+         <div className='grid lg:grid-cols-5 md:grid-cols-4 border'>
+            <div data-theme="night" className='lg:col-span-1 md:col-span-1 border'>
                <Categories></Categories>
             </div>
-            <div className='lg:col-span-3  md:col-span-2 border'>
+            <div className='lg:col-span-4  md:col-span-3 border'>
                <Outlet></Outlet>
             </div>
          </div>

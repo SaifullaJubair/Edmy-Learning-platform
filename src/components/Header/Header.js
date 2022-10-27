@@ -11,20 +11,13 @@ const Header = () => {
                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                   </label>
                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                     <li><Link to='/course'>Course</Link></li>
+                     <li><Link to='/faq'>FAQ</Link></li>
                      <li tabIndex={0}>
-                        <Link to='/blog' className="justify-between">
-                           Blog
-                           <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                        </Link>
-                        <ul className="p-2 bg-slate-700">
-                           <li> <Link to='/blog/01'>Blog1</Link></li>
-                           <li> <Link to='/blog/02'>Blog2</Link></li>
-                           <li> <Link to='/blog/03'>Blog3</Link></li>
-                           <li> <Link to='/blog/04'>Blog4</Link></li>
-                        </ul>
+                        <Link to='/blog' className="justify-between">Blog</Link>
                      </li>
-                     <li><Link to='/course'>Courses</Link></li>
+                     <li><Link to='/courses'>Courses</Link></li>
+                     <li><Link to='/signup'>SignUp</Link></li>
+                     <li><Link to='/login'>Login</Link></li>
                   </ul>
                </div>
                <Link to='/' className="btn btn-ghost normal-case text-xl">Edmy</Link>
@@ -32,23 +25,14 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal p-0">
                   <li><Link to='/faq'>FAQ</Link></li>
-                  <li tabIndex={0}>
-                     <Link to='blog'>
-                        Parent
-                        <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                     </Link>
-                     <ul className="p-2">
-                        <li> <Link to='/blog/01'>Blog1</Link></li>
-                        <li> <Link to='/blog/02'>Blog2</Link></li>
-                        <li> <Link to='/blog/03'>Blog3</Link></li>
-                        <li> <Link to='/blog/04'>Blog4</Link></li>
-                     </ul>
-                  </li>
-                  <li><Link to='/course'>Courses</Link></li>
+                  <li><Link to='blog'>Blog</Link></li>
+                  <li><Link to='/courses'>Courses</Link></li>
+                  <li><Link to='/signup'>SignUp</Link></li>
+                  <li><Link to='/login'>Login</Link></li>
                </ul>
             </div>
             <div className="navbar-end">
-               <a className="btn">Get started</a>
+               <Link to='/user'>User</Link>
             </div>
          </div>
       </div>

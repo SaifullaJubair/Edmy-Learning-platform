@@ -7,8 +7,8 @@ const CourseSummary = ({ course }) => {
    return (
 
       <div>
-         <Link to={`/course/${_id}`}>
-            <div className="card w-3/4 bg-base-100 shadow-xl mx-auto my-4">
+         <div className="card w-3/4 bg-base-100 shadow-xl mx-auto my-4">
+            <Link to={`/course/${_id}`}>
                <figure>
                   <img src="https://img.freepik.com/free-photo/close-up-image-programer-working-his-desk-office_1098-18707.jpg?w=1060&t=st=1666782419~exp=1666783019~hmac=d0fe22544ddcffe298af325818ca533914a0fc643839a514078f77d2c713d128" alt="Shoes" />
                </figure>
@@ -41,8 +41,8 @@ const CourseSummary = ({ course }) => {
                      <Link to='/checkout'><button className="btn btn-primary mt-2">Buy Now</button></Link>
                   </div>
                </div>
-            </div>
-         </Link>
+            </Link>
+         </div>
       </div>
 
    );
