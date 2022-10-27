@@ -46,10 +46,6 @@ export const routes = createBrowserRouter([
             element: <User></User>
          },
          {
-            path: '/signup',
-            element: <User></User>
-         },
-         {
             path: '/login',
             element: <Login></Login>
          },

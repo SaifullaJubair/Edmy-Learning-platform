@@ -26,7 +26,7 @@ const Header = () => {
                         <Link to='/blog' className="justify-between">Blog</Link>
                      </li>
                      <li><Link to='/courses'>Courses</Link></li>
-                     <li><Link to='/signup'>SignUp</Link></li>
+                     <li><Link to='/register'>SignUp</Link></li>
                      <li><Link to='/login'>Login</Link></li>
                   </ul>
                </div>
@@ -43,19 +43,18 @@ const Header = () => {
             </div>
             <div className="navbar-end mr-3">
                <input type="checkbox" className="toggle mr-2" />
+               {
+                  user?.uid ?
+                     <>
+                        <button className='mx-2' onClick={handleLogOut}> Logout</button>
+                     </>
+                     :
+                     <>
+                        <Link to='/register' className='mx-2'>SignUp</Link>
+                        <Link to='/login' className='mr-2'>Login</Link>
+                     </>
+               }
                <Link to='/user'>
-                  {
-                     user?.uid ?
-                        <>
-                           <span>{user?.displayName}</span>
-                           <button onClick={handleLogOut}> Logout</button>
-                        </>
-                        :
-                        <>
-                           <Link to='/signup'>SignUp</Link>
-                           <Link to='/login'>Login</Link>
-                        </>
-                  }
                   {
                      user?.photoURL ?
                         <img className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />

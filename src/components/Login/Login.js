@@ -4,21 +4,24 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../Context/AuthProvider';
 
+
 const Login = () => {
+   const navigate = useNavigate()
 
-   const { providerLogin, signIn } = useContext(AuthContext)
-   const googleProvider = new GoogleAuthProvider()
+   const { providerLogin, signIn, signInWithGoogle } = useContext(AuthContext)
+
+
+
+
+
    const handleGoogleSignIn = () => {
-
-      providerLogin(googleProvider)
+      signInWithGoogle()
          .then(result => {
             const user = result.user;
             console.log(user)
          })
          .catch(error => console.error(error));
    }
-
-   const navigate = useNavigate()
 
    const handleSubmit = (event) => {
       event.preventDefault()
@@ -36,8 +39,8 @@ const Login = () => {
             navigate('/')
          })
          .catch(error => console.error('error: ', error))
-   }
 
+   }
 
    return (
       <div className="hero min-h-screen bg-base-200">
@@ -63,7 +66,7 @@ const Login = () => {
                   </div>
                   <div className="form-control mt-2">
                      <button className="btn btn-primary my-2">Login</button>
-
+                     <p></p>
                      <button className="btn btn-primary" onClick={handleGoogleSignIn}>
                         <p>F</p>
                      </button>
