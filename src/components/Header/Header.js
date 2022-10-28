@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
-
+import pic from '../../img/scholarship.png'
 import { AuthContext } from '../Context/AuthProvider';
 
 const Header = () => {
@@ -30,16 +30,21 @@ const Header = () => {
                      <li><Link to='/login'>Login</Link></li>
                   </ul>
                </div>
-               <Link to='/' className="btn btn-ghost normal-case text-xl">Edmy</Link>
+               <Link to='/' className="btn btn-ghost normal-case text-xl">
+                  <div className='flex items-center ml-2 font-bold text-3xl'>
+                     <img className='w-8 mr-2' src={pic} alt="" />
+                     <h3>Edmy</h3>
+                  </div>
+               </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden lg:flex text-lg font-semibold">
                <ul className="menu menu-horizontal p-0">
                   <li><Link to='/faq'>FAQ</Link></li>
                   <li><Link to='blog'>Blog</Link></li>
                   <li><Link to='/courses'>Courses</Link></li>
                </ul>
             </div>
-            <div className="navbar-end mr-3">
+            <div className="navbar-end mr-6">
                <input type="checkbox" className="toggle mr-2" />
                {
                   user?.uid ?
@@ -48,8 +53,8 @@ const Header = () => {
                      </>
                      :
                      <>
-                        <Link to='/register' className='mx-2'>SignUp</Link>
-                        <Link to='/login' className='mr-2'>Login</Link>
+                        <Link to='/register' className='mx-2 text-lg font-semibold'>SignUp</Link>
+                        <Link to='/login' className='mr-2 text-lg font-semibold'>Login</Link>
                      </>
                }
                <Link to='/profile'>

@@ -7,7 +7,7 @@ const CourseSummary = ({ course }) => {
    return (
 
       <div>
-         <div className="card w-3/4 bg-base-100 shadow-xl mx-auto my-4">
+         <div className="card lg:w-2/3 md:w-4/5 sm:w-11/12 bg-base-100 shadow-xl mx-auto my-4">
             <Link to={`/course/${_id}`}>
                <figure>
                   <img src={image_url} alt="Shoes" />

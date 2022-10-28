@@ -5,8 +5,8 @@ import CourseSummary from '../CourseSummary/CourseSummary';
 const Category = () => {
    const categoryCourse = useLoaderData()
    return (
-      <div>
-         <h2 className='text-center font-semibold lg:text-3xl'>Our Best {categoryCourse.length} courses are here! </h2>
+      <div >
+         <h2 className='text-center font-semibold lg:text-3xl'>Our Best {categoryCourse.length} courses are </h2>
          {
             categoryCourse.map(course => <CourseSummary
                key={course._id}
@@ -17,4 +17,4 @@ const Category = () => {
    );
 };
 
-export default Category;
+export default Category;   
