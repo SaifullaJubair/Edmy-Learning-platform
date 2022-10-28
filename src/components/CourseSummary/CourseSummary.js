@@ -7,7 +7,7 @@ const CourseSummary = ({ course }) => {
    return (
 
       <div>
-         <div className="card lg:w-2/3 md:w-4/5 sm:w-11/12 bg-base-100 shadow-xl mx-auto my-4">
+         <div className="card lg:w-2/3 md:w-4/5 sm:w-11/12 bg-base-100 shadow-xl mx-auto my-8">
             <Link to={`/course/${_id}`}>
                <figure>
                   <img src={image_url} alt="Shoes" />
@@ -38,7 +38,10 @@ const CourseSummary = ({ course }) => {
                      <p className='font-semibold my-2'>
                         Price: ${price}
                      </p>
-                     <Link to='/checkout'><button className="btn btn-primary mt-2">Buy Now</button></Link>
+                     <div className='flex justify-between'>
+                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary mt-2">Get Premium Access</button></Link>
+                        <button className='btn btn-primary'>Course Details</button>
+                     </div>
                   </div>
                </div>
             </Link>

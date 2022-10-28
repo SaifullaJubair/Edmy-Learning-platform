@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
    const [categories, setCategories] = useState([])
-   fetch('http://localhost:5000/categories')
+   fetch('https://server-edmy-a10-saifullajubair.vercel.app/categories')
       .then(res => res.json())
       .then(data => setCategories(data))
 
@@ -15,7 +15,7 @@ const Categories = () => {
          <h2 className='text-primary text-xl '>ALL Categories {categories.length}</h2>
          <div className='my-4  text-lg'>
             {
-               categories.map(category => <p key={category.id}>
+               categories.map(category => <p className='mb-3' key={category.id}>
                   <Link to={`/category/${category.id}`}>{category.name}</Link>
                </p>)
             }

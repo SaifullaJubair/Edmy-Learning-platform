@@ -12,6 +12,7 @@ import Register from "../Register/Register";
 import Terms from "../Terms/Terms";
 import Profile from "../User/Profile";
 import PrivateRoute from "./PrivateRoute";
+import UnKnownRoutes from "./UnKnownRoutes";
 
 export const routes = createBrowserRouter([
    {
@@ -21,23 +22,23 @@ export const routes = createBrowserRouter([
          {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch(`http://localhost:5000/course`)
+            loader: () => fetch(`https://server-edmy-a10-saifullajubair.vercel.app/course`)
          },
          {
             path: '/courses',
             element: <Courses></Courses>,
-            loader: () => fetch(`http://localhost:5000/course`)
+            loader: () => fetch(`https://server-edmy-a10-saifullajubair.vercel.app/course`)
          },
          {
             path: '/category/:id',
             element: <Category></Category>,
-            loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+            loader: ({ params }) => fetch(`https://server-edmy-a10-saifullajubair.vercel.app/category/${params.id}`)
          },
 
          {
             path: '/course/:id',
             element: <PrivateRoute><Course></Course></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+            loader: ({ params }) => fetch(`https://server-edmy-a10-saifullajubair.vercel.app/course/${params.id}`)
          },
          {
             path: '/blog',
@@ -56,9 +57,9 @@ export const routes = createBrowserRouter([
             element: <Register></Register>
          },
          {
-            path: '/checkout',
+            path: '/checkout/:id',
             element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+            loader: ({ params }) => fetch(`https://server-edmy-a10-saifullajubair.vercel.app/course/${params.id}`)
          },
          {
             path: '/terms',
@@ -69,5 +70,9 @@ export const routes = createBrowserRouter([
             element: <FAQ></FAQ>
          },
       ]
+   },
+   {
+      path: '*',
+      element: <UnKnownRoutes></UnKnownRoutes>
    }
 ])

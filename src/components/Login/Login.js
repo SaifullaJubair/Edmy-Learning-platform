@@ -51,12 +51,7 @@ const Login = () => {
             console.log(user)
             form.reset()
             setError('')
-            if (user.emailVerified) {
-               navigate(from, { replace: true })
-            }
-            else {
-               toast.error('Your email is not Verified! Please Verify your email.Check your inbox spam folder')
-            }
+            navigate(from, { replace: true })
          })
          .catch(error => {
             console.error('error: ', error)

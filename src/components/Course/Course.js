@@ -1,18 +1,20 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { FaClock, FaLightbulb, FaStar, FaUsers } from "react-icons/fa";
-import { BsFillCaretRightSquareFill } from "react-icons/bs";
-
+import { FaClock, FaFileDownload, FaLightbulb, FaStar, FaUsers } from "react-icons/fa";
+import { BsFilePdfFill, BsFillCaretRightSquareFill } from "react-icons/bs";
+import Pdf from "react-to-pdf";
 import { Link } from 'react-router-dom';
+const ref = React.createRef();
 
 const Course = () => {
    const course = useLoaderData()
    const { title, _id, rating, details, price, instructor, image_url, course_overview, course_time, video, quiz, exam, enrolled } = course
    return (
       <div>
+
          <h1 className='text-center text-4xl text-semibold'>Course Details</h1>
 
-         <div className="card lg:w-4/5 sm:w-11/12 bg-base-100 shadow mx-auto my-4">
+         <div ref={ref} className="card lg:w-4/5 sm:w-11/12 bg-base-100 shadow mx-auto my-4">
             <figure>
                <img src={image_url} alt="Shoes" />
             </figure>
@@ -65,7 +67,21 @@ const Course = () => {
                   </ul>
                   <div className="mt-2">
 
-                     <Link to='/checkout'><button className="btn btn-primary mt-2">Buy Now</button></Link>
+
+                     <Link to={`/checkout/${_id}`}><button className="btn btn-primary mt-2">Buy Now</button></Link>
+                     <Pdf targetRef={ref} filename="code-example.pdf" scale={0.64}>
+                        {({ toPdf }) => <button onClick={toPdf}>
+                           <div className='flex items-center btn btn-primary ml-6'>
+                              <span>
+                                 <FaFileDownload />
+                              </span>
+                              <span className='ml-2'>
+                                 Generate Pdf
+                              </span>
+                           </div>
+                        </button>}
+                     </Pdf>
+
                   </div>
                </div>
             </div>
