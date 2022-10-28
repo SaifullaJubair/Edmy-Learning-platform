@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaClock, FaLightbulb, FaStar, FaUsers } from "react-icons/fa";
-import { BsFillCaretRightSquareFill, IconName } from "react-icons/bs";
+import { BsFillCaretRightSquareFill } from "react-icons/bs";
 
 import { Link } from 'react-router-dom';
 
